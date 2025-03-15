@@ -6,8 +6,8 @@ pygame.init()
 WIDTH, HEIGHT = 1600, 900
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("TEST")
-pygame.mouse.set_visible(False)  # Fareyi gizle
-pygame.event.set_grab(True)  # Fareyi pencere içinde tut
+pygame.mouse.set_visible(False)
+pygame.event.set_grab(True)
 
 BLACK = (0, 0, 0)
 BLUE = (0, 0, 255)
@@ -68,12 +68,11 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         elif event.type == pygame.MOUSEMOTION:
-            dx, dy = event.rel  # Fare hareketini al
+            dx, dy = event.rel
             camera_rotation_x += dx * sensitivity
-            camera_rotation_y += dy * sensitivity  # Ters yönde hareket etmesi için
-            camera_rotation_y = max(-math.pi / 2, min(math.pi / 2, camera_rotation_y))  # Yukarı-aşağı sınırla
+            camera_rotation_y += dy * sensitivity
+            camera_rotation_y = max(-math.pi / 2, min(math.pi / 2, camera_rotation_y))
 
-    # Her çerçevede fareyi ekranın ortasına koy
     pygame.mouse.set_pos(WIDTH // 2, HEIGHT // 2)
 
     keys = pygame.key.get_pressed()
